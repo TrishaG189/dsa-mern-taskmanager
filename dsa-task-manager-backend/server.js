@@ -36,17 +36,13 @@ mongoose.connect(mongoURI)
 
 // --- 4. ROUTES ---
 const cartRoutes = require('./routes/cartRoutes');
-
-
-const trafficRoutes = require('./routes/trafficRoutes');
-
-
 const taskRoutes = require('./routes/taskRoutes');
-app.use('/api/cart', cartRoutes);
-app.use('/api/traffic', trafficRoutes);
+
 app.get('/', (req, res) => {
     res.send('Task Manager API is running!');
 });
+
+app.use('/api/cart', cartRoutes);
 
 app.use('/api/tasks', taskRoutes);
 
